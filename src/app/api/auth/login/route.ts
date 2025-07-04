@@ -5,7 +5,7 @@ export async function POST(req: NextRequest) {
   const { username, password } = await req.json();
 
   const backendRes = await axios.post(
-    `${process.env.BACKEND_URL}/users/signin`,
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/users/signin`,
     { username, password },
     { withCredentials: true }
   );
