@@ -3,11 +3,13 @@ import axios from 'axios';
 
 export async function POST(req: NextRequest) {
   const { username, password } = await req.json();
-
+  console.log('Login request received:', { username, password });
+  const backendUrl = `${process.env.NEXT_PUBLIC_BACKEND_URL}/users/signin`;
+  console.log('Backend URL:', backendUrl);
   const backendRes = await axios.post(
-    `${process.env.NEXT_PUBLIC_BACKEND_URL}/users/signin`,
+    backendUrl,
     { username, password },
-    { withCredentials: true }
+    // { withCredentials: true }
   );
   const token = (backendRes.data as string );
   const res = NextResponse.json({ loggedIn: true });
