@@ -10,23 +10,14 @@ let angle = 50;
 let rad = toRad(angle);
 const r = 1.0;
 
-
-let canvas: HTMLCanvasElement | null;
-let ctx: CanvasRenderingContext2D | null;
-
 function toRad(angle: number): number {
   return angle as number / radian as number;
 }
 
-function getRandom(max: number = 180.0): number {
+// function getRandom(max: number = 180.0): number {
   
-  return Math.random() * max;
-}
-
-function reloadPage() {
-  const href = window.location.href;
-  // window.location.href = href;
-}
+//   return Math.random() * max;
+// }
 
 function changeColor(block: HTMLElement) {
   const oldColor = block.style.backgroundColor;
@@ -80,9 +71,6 @@ export default function NotFound() {
 
   useEffect(() => {
     const block = document.getElementById('movement');
-    if (block) {
-    }
-    setTimeout(reloadPage, 3000);
     const id = setInterval(animate, 5);
     if (!block) clearInterval(id);
   }, []);
